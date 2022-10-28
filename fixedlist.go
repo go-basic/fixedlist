@@ -39,6 +39,8 @@ func (f *fixedList) Add(val interface{}) {
 
 //获取数据长度
 func (f *fixedList) Len() int {
+	f.RLock()
+	defer f.RUnlock()
 	return f.data.Len()
 }
 
